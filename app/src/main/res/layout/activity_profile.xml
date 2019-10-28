@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.activity.ProfileActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorHeaderBlue">
+
+        <ImageView
+            android:id="@+id/btBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:src="@drawable/ic_back"/>
+
+        <TextView
+            android:id="@+id/tvEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text="Edit"
+            android:textColor="@android:color/white"/>
+
+
+        <TextView
+            android:id="@+id/TvSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toEndOf="@+id/tvEdit"
+            android:layout_marginRight="8dp"
+            android:gravity="end"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:text="Save"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvPhoto"
+            android:layout_centerInParent="true"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="60dp">
+
+            <ImageView
+                android:id="@+id/ivProfileEdit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_below="@+id/cvPhoto"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            tools:text="@tools:sample/full_names"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvLabelName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:text="Name"/>
+
+    <EditText
+        android:id="@+id/etInputName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/bg_input"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/tvLabelPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:text="Phone"/>
+
+    <EditText
+        android:id="@+id/etInputPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/bg_input"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/tvLabelEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:text="Email"/>
+
+    <EditText
+        android:id="@+id/etInputEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/bg_input"
+        android:textColor="@android:color/black"/>
+
+</LinearLayout>

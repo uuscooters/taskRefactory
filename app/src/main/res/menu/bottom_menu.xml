@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/Contact"
+        android:title="@string/contact"
+        android:icon="@drawable/ic_contact"/>
+
+
+    <item
+        android:id="@+id/Calendar"
+        android:title="@string/calendar"
+        android:icon="@drawable/ic_calendar"/>
+
+
+    <item
+        android:id="@+id/Inbox"
+        android:title="@string/index"
+        android:icon="@drawable/ic_inbox"/>
+
+
+    <item
+        android:id="@+id/Setting"
+        android:title="@string/setting"
+        android:icon="@drawable/ic_settings"/>
+
+
+
+
+</menu>
