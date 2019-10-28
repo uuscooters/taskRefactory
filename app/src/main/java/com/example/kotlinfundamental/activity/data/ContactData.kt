@@ -1,11 +1,11 @@
 package com.example.kotlinfundamental.activity.data
 
 data class ContactData(
-    val address: String,
-    val favorite: Boolean,
-    val id: Int,
-    val image: String,
-    val image_url: String,
-    val name: String,
-    val phone: String
+    var address: String,
+    var favorite: Boolean,
+    var id: Int,
+    var image: String,
+    var image_url: String,
+    var name: String,
+    var phone: String
 )

@@ -9,23 +9,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlinfundamental.BuildConfig
-
 import com.example.kotlinfundamental.R
-import com.example.kotlinfundamental.activity.API.API.Companion.addContact
 import com.example.kotlinfundamental.activity.activity.ProfileActivity
 import com.example.kotlinfundamental.activity.adapter.ContactAdapter
-import com.example.kotlinfundamental.activity.data.ContactData
 import com.example.kotlinfundamental.activity.data.ResponseData
 import com.example.kotlinfundamental.activity.helper.Utils
 import kotlinx.android.synthetic.main.fragment_contact.*
-import kotlinx.android.synthetic.main.item_contact.*
 import retrofit2.Call
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 class ContactFragment : Fragment() {
 
-    var contactAdapter = ContactAdapter()
+    private val contactAdapter = ContactAdapter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -35,8 +30,8 @@ class ContactFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        initRecycleView()
         initEvent()
-        initRecyleView()
     }
 
     override fun onResume() {
@@ -46,12 +41,10 @@ class ContactFragment : Fragment() {
     }
 
     private fun getData() {
-
         srlMain.isRefreshing = true
 
-        API.getContacts(object :Callback<ResponseData> {
+        API.getContacts(object: retrofit2.Callback<ResponseData>{
             override fun onFailure(call: Call<ResponseData>, t: Throwable){
-
                 srlMain.isRefreshing = false
 
                 if (BuildConfig.DEBUG) {
@@ -65,6 +58,7 @@ class ContactFragment : Fragment() {
 
                 if (response.isSuccessful) {
                     contactAdapter.arrayList = response.body()!!.data
+                    contactAdapter.notifyDataSetChanged()
                 }else {
                     if (BuildConfig.DEBUG) {
                         Utils.showToast(activity!!, response.message())
@@ -74,7 +68,7 @@ class ContactFragment : Fragment() {
         })
     }
 
-    private fun initRecyleView() {
+    private fun initRecycleView() {
 
         val liniearLayoutManager = LinearLayoutManager(activity!!)
         liniearLayoutManager.orientation = LinearLayoutManager.VERTICAL
@@ -82,8 +76,9 @@ class ContactFragment : Fragment() {
 
         rvContact.apply {
             setHasFixedSize(true)
-            layoutManager = liniearLayoutManager
             adapter = contactAdapter
+            layoutManager = liniearLayoutManager
+
         }
     }
 
@@ -91,5 +86,6 @@ class ContactFragment : Fragment() {
     private fun initEvent() {
         fabadd.setOnClickListener { startActivity(Intent(activity!!, ProfileActivity::class.java)) }
 
-            }
+        srlMain.setOnRefreshListener { getData() }
+    }
 }
